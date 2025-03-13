@@ -33,7 +33,7 @@ elseif strcmp(mode,'exponen')
 elseif strcmp(mode,'exponen_multiply')
 
     for i = 1:q
-        for j = 1:length(input_X)-q
+        for j = 1:length(input_X)-i
             res = [res input_X(j+i)*exp(alpha*(input_X(j)))];
             index_mat_nonlinear1(u, :) = [j, j+i];
             u=u+1;
@@ -43,7 +43,7 @@ elseif strcmp(mode,'exponen_multiply_add')
     % 用于更新系数
     % x1*x2*exp(x1*x2)
     for i = 1:q
-        for j = 1:length(input_X)-q
+        for j = 1:length(input_X)-i
             res = [res (input_X(j+i)+input_X(j))*exp(alpha*(input_X(j)+input_X(j+i)))];
             index_mat_nonlinear1(u, :) = [j, j+i];
             u=u+1;
